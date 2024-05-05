@@ -4,14 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class AdminPage {
+public class LoginPage {
     private WebDriver webDriver;
     private String baseUrl = "http://127.0.0.1:5000";
 
     public String getBaseUrl() {
         return baseUrl;
     }
-    public AdminPage(WebDriver webDriver) {
+    public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
     public void goToAdminPage() {
