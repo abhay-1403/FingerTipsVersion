@@ -9,9 +9,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.springframework.test.context.jdbc.Sql;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Sql({"/data.sql"})
 class RegistrationTest {
     private WebDriver webDriver;
     private RegistrationPage registrationPage;
@@ -60,7 +62,7 @@ class RegistrationTest {
     @Test
     void testLoginHereLink() {
         this.registrationPage.clickLoginHere();
-        assertThat(this.webDriver.getCurrentUrl()).isEqualTo(this.registrationPage.getBaseUrl() + "/login");
+        assertThat(this.webDriver.getCurrentUrl()).isEqualTo(this.registrationPage.getBaseUrl() + "/adminLogin");
     }
     @AfterEach
     void tearDown() {

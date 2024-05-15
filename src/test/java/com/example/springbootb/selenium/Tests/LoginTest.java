@@ -26,7 +26,7 @@ public class LoginTest {
         options.addArguments("--remote-allow-origins=*");
         this.webDriver = new ChromeDriver(options);
         this.loginPage = new LoginPage(this.webDriver);
-        this.loginPage.goToAdminPage();
+        this.loginPage.goToLoginPage();
         this.loginPage.goFullScreen();
     }
 

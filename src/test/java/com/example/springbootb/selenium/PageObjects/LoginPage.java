@@ -14,7 +14,7 @@ public class LoginPage {
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
-    public void goToAdminPage() {
+    public void goToLoginPage() {
         this.webDriver.get(this.baseUrl+"/login");
     }
 
