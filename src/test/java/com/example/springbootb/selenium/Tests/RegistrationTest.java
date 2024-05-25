@@ -7,27 +7,30 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.test.context.jdbc.Sql;
+
+import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Sql({"/data.sql"})
 class RegistrationTest {
     private WebDriver webDriver;
     private RegistrationPage registrationPage;
 
     @BeforeAll
     public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.edgedriver().setup();
     }
 
     @BeforeEach
     public void openHomePage() {
-        ChromeOptions options = new ChromeOptions();
+        EdgeOptions options = new EdgeOptions();
         options.addArguments("--remote-allow-origins=*");
-        this.webDriver = new ChromeDriver(options);
+        this.webDriver = new EdgeDriver(options);
         this.registrationPage = new RegistrationPage(this.webDriver);
         this.registrationPage.goToRegistrationPage();
         this.registrationPage.goFullScreen();
@@ -62,7 +65,7 @@ class RegistrationTest {
     @Test
     void testLoginHereLink() {
         this.registrationPage.clickLoginHere();
-        assertThat(this.webDriver.getCurrentUrl()).isEqualTo(this.registrationPage.getBaseUrl() + "/adminLogin");
+        assertThat(this.webDriver.getCurrentUrl()).isEqualTo(this.registrationPage.getBaseUrl() + "/login");
     }
     @AfterEach
     void tearDown() {

@@ -9,6 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.safari.SafariOptions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,14 +21,12 @@ public class FeedbackTest {
     private FeedbackPage feedbackPage;
     @BeforeAll
     public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
+        // No need to setup SafariDriver as it comes with macOS
     }
-
     @BeforeEach
     public void openHomePage() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        this.webDriver = new ChromeDriver(options);
+        SafariOptions options = new SafariOptions();
+        this.webDriver = new SafariDriver(options);
         this.feedbackPage = new FeedbackPage(this.webDriver);
         this.feedbackPage.goToFeedbackPage();
         this.feedbackPage.goFullScreen();
