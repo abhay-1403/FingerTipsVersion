@@ -25,7 +25,7 @@ public class FingerTipsSpringBoot {
 			addRoleIfNotExist(roleRepository, "ROLE_GUEST");
 		};
 	}
-	private void addRoleIfNotExist(RoleRepository roleRepository, String roleName) {
+	void addRoleIfNotExist(RoleRepository roleRepository, String roleName) {
 		Optional<Role> existingRole = Optional.ofNullable(roleRepository.findByName(roleName));
 		if (!existingRole.isPresent()) {
 			Role role = new Role();
