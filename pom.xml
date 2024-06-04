@@ -18,6 +18,7 @@
 	<properties>
 		<jdk.version>17</jdk.version>
 		<jacoco-maven-plugin>0.8.6</jacoco-maven-plugin>
+		<sonar.exclusions>src/main/java/com/example/springbootb/dto/**,src/main/java/com/example/springbootb/util/**,src/main/java/com/example/springbootb/security/**,src/main/java/com/example/springbootb/ServletInitializer.java</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<!--		<dependency>-->
